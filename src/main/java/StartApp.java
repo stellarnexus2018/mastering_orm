@@ -1,9 +1,12 @@
 import Entity.Exam;
 import Entity.Student;
+import Reports.Reports;
+import Reports.ExamResult;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.util.List;
 import java.util.Set;
@@ -24,11 +27,18 @@ public class StartApp {
     sess.save(s);*/
 
 
-    Student z = sess.get(Student.class, 3);
+    /*Student z = sess.get(Student.class, 3);
     Set<Exam> exams = z.getExams();
     System.out.println(z);
-    System.out.println(exams);
+    System.out.println(exams);*/
 
+    /*Query q = sess.createQuery("from Student");
+    List<Student> lst = q.getResultList();*/
+
+    Reports r = new Reports();
+    List<ExamResult> res = r.getExamResults("Igoryasha",
+        "Grigoryev",
+        sess);
 
 
     trans.commit();
