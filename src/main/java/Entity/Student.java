@@ -1,22 +1,45 @@
 package Entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "students")
 public class Student {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  int id;
+  private int id;
 
   @Column(name = "first_name")
-  String firstName;
+  private String firstName;
 
   @Column(name = "last_name")
-  String lastName;
+  private String lastName;
 
   @Column(name = "age")
-  int age;
+  private int age;
+
+  @Embedded
+  private StudentAddress studentAddress;
+
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "student")
+  private Set<Exam> exams;
+
+  public Set<Exam> getExams() {
+    return exams;
+  }
+
+  public void setExams(Set<Exam> exams) {
+    this.exams = exams;
+  }
+
+  public StudentAddress getStudentAddress() {
+    return studentAddress;
+  }
+
+  public void setStudentAddress(StudentAddress studentAddress) {
+    this.studentAddress = studentAddress;
+  }
 
   public int getId() {
     return id;
@@ -48,5 +71,15 @@ public class Student {
 
   public void setAge(int age) {
     this.age = age;
+  }
+
+  @Override
+  public String toString() {
+    return "Student{" +
+        "id=" + id +
+        ", firstName='" + firstName + '\'' +
+        ", lastName='" + lastName + '\'' +
+        ", age=" + age +
+        '}';
   }
 }

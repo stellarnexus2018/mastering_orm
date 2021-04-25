@@ -18,8 +18,8 @@
         <property name="use_sql_comments">false</property>
 
         <mapping class="Entity.Student"></mapping>
-        <!--<mapping class="Entity.Subject"></mapping>
-        <mapping class="Entity.Exam"></mapping>-->
+        <mapping class="Entity.Subject"></mapping>
+        <mapping class="Entity.Exam"></mapping>
 
 
         <!--
