@@ -36,9 +36,9 @@ public class StartApp {
     List<Student> lst = q.getResultList();*/
 
     Reports r = new Reports();
-    List<ExamResult> res = r.getExamResults("Igoryasha",
-        "Grigoryev",
-        sess);
+//    List<ExamResult> res = r.getExamResults("Igoryasha", "Grigoryev", sess);
+//    List<ExamResult> res = r.getExamResultsSimple("Igoryasha", "Grigoryev", sess);
+    List<Exam> res = r.getExamResultsCrit("Igoryasha", "Grigoryev", sess);
 
 
     trans.commit();
